@@ -135,14 +135,15 @@ export function Footer() {
                 <path d="M14 8.5V7.2c0-.7.5-1.2 1.3-1.2H17V3h-2.2C12.8 3 12 4.8 12 6.5V8.5H9v3h3V21h3v-9.5h2.6l.4-3H15z" />
               </svg>
             </SocialIcon>
-            <SocialIcon href={site.social.youtube} label="YouTube">
-              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
-                <path d="M21.6 7.2a2.5 2.5 0 00-1.8-1.8C17.8 5 12 5 12 5s-5.8 0-7.8.4A2.5 2.5 0 002.4 7.2 26 26 0 002 12a26 26 0 00.4 4.8 2.5 2.5 0 001.8 1.8C6.2 19 12 19 12 19s5.8 0 7.8-.4a2.5 2.5 0 001.8-1.8A26 26 0 0022 12a26 26 0 00-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z" />
-              </svg>
-            </SocialIcon>
             <SocialIcon href={site.social.linkedin} label="LinkedIn">
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
                 <path d="M6.5 8.5h3v10h-3v-10zm1.5-4.5a1.8 1.8 0 110 3.6 1.8 1.8 0 010-3.6zM10 8.5h2.9v1.4h.04c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V18.5h-3v-4.8c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5v4.9h-3V8.5z" />
+              </svg>
+            </SocialIcon>
+            <SocialIcon href={`mailto:${site.email}`} label="Email">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" aria-hidden>
+                <rect x="3" y="5" width="18" height="14" rx="2" strokeWidth="1.5" />
+                <path d="M4 7l8 6 8-6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </SocialIcon>
             <SocialIcon href={whatsappHref} label="WhatsApp">

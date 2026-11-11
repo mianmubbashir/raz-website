@@ -45,12 +45,12 @@ export const site = {
     name: "Ali Raza",
     role: "CEO & Founder",
   },
+  email: "contactus@razstiching.com",
   /** Update with your real profile URLs */
   social: {
-    instagram: "https://instagram.com/razstitching",
-    facebook: "https://facebook.com/razstitching",
-    youtube: "https://youtube.com/@razstitching",
-    linkedin: "https://linkedin.com/company/razstitching",
+    instagram: "https://www.instagram.com/raz.stiching",
+    facebook: "https://www.facebook.com/profile.php?id=61595625134778",
+    linkedin: "https://www.linkedin.com/company/145371817",
   },
 } as const;
 
@@ -117,8 +117,8 @@ export const footerTools = [
 export const footerSocial = [
   { href: site.social.instagram, label: "Instagram profile" },
   { href: site.social.facebook, label: "Facebook Page" },
-  { href: site.social.youtube, label: "YouTube" },
   { href: site.social.linkedin, label: "LinkedIn" },
+  { href: `mailto:${site.email}`, label: site.email },
 ] as const;
 
 export const stats = [
