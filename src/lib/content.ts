@@ -122,8 +122,8 @@ export const footerSocial = [
 ] as const;
 
 export const stats = [
-  { id: "customers", value: 65590, label: "Customers" },
-  { id: "suits", value: 950000, label: "Suits Stitched" },
+  { id: "customers", value: 225570, label: "Customers" },
+  { id: "suits", value: 1356200, label: "Suits Stitched" },
   { id: "deliveries", value: 8490, label: "Home Deliveries" },
   { id: "years", value: 24, label: "Years Old" },
 ] as const;
