@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { TrackSuit } from "@/components/TrackSuit";
+
+export const metadata: Metadata = {
+  title: "Track Your Suit | Raz Stitching",
+  description:
+    "Check the status of your shalwar kameez, design suit, or formal wear order at Raz Stitching — from fabric to fitting to pickup.",
+};
+
+type TrackSuitPageProps = {
+  searchParams: Promise<{ id?: string; phone?: string }>;
+};
+
+export default async function TrackSuitPage({ searchParams }: TrackSuitPageProps) {
+  const { id, phone } = await searchParams;
+
+  return (
+    <>
+      <ScrollProgress />
+      <Header />
+      <main>
+        <TrackSuit initialOrderId={id ?? ""} initialPhone={phone ?? ""} />
+      </main>
+      <Footer />
+    </>
+  );
+}

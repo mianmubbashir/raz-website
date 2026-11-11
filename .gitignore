@@ -24,6 +24,12 @@
 .DS_Store
 *.pem
 
+# Large source media (use compressed web assets under public/images instead)
+public/shop.mp4
+public/*.mov
+public/*.heic
+public/*.HEIC
+
 # debug
 npm-debug.log*
 yarn-debug.log*
