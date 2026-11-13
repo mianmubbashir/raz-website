@@ -39,7 +39,7 @@ export function Reveal({
           observer.unobserve(node);
         }
       },
-      { threshold: 0.14, rootMargin: "0px 0px -6% 0px" },
+      { threshold: 0.08, rootMargin: "80px 0px -4% 0px" },
     );
 
     observer.observe(node);

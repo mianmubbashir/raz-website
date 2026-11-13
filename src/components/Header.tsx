@@ -179,14 +179,13 @@ export function Header() {
                 RAZ
               </span>
               <Image
-                src="/logo2.svg"
+                src="/logo2-icon.webp"
                 alt=""
-                width={64}
-                height={58}
+                width={48}
+                height={48}
                 priority
-                loading="eager"
-                unoptimized
-                className="h-10 w-auto drop-shadow-[0_8px_22px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-110 md:h-12"
+                quality={75}
+                className="h-10 w-10 object-contain drop-shadow-[0_8px_22px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-110 md:h-12 md:w-12"
               />
             </span>
           </Link>

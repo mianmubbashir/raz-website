@@ -121,6 +121,9 @@ export function Services() {
               {services.map((service, i) => {
                 const isCurrent = active === i;
                 const isPrev = prevActive === i && !isCurrent;
+                const isNext = i === active + 1;
+                // Only mount nearby slides so we don't download every service image up front
+                if (!isCurrent && !isPrev && !isNext) return null;
                 return (
                   <div
                     key={service.name}
@@ -137,9 +140,11 @@ export function Services() {
                       src={service.image}
                       alt={isCurrent ? service.name : ""}
                       fill
-                      sizes="45vw"
+                      quality={65}
+                      sizes="(max-width: 1024px) 100vw, 45vw"
                       className="object-cover object-top ken-burns"
                       priority={i === 0}
+                      loading={i === 0 ? "eager" : "lazy"}
                     />
                   </div>
                 );

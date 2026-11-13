@@ -5,9 +5,10 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { TrackSuit } from "@/components/TrackSuit";
 
 export const metadata: Metadata = {
-  title: "Track Your Suit | Raz Stitching",
+  title: "Track Your Suit — Raz Stitching Order Status Karachi",
   description:
-    "Check the status of your shalwar kameez, design suit, or formal wear order at Raz Stitching — from fabric to fitting to pickup.",
+    "Track your Raz Stitching order in Karachi — shalwar kameez, suit, pant coat, waist coat & silai status from fabric to fitting to pickup.",
+  alternates: { canonical: "/track-suit" },
 };
 
 type TrackSuitPageProps = {

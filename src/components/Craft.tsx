@@ -42,7 +42,9 @@ export function Craft() {
             src={images.craft.src}
             alt=""
             fill
+            quality={60}
             sizes="100vw"
+            loading="lazy"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-ink/80" />

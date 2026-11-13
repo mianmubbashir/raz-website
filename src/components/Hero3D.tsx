@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { images } from "@/lib/content";
-
-const Hero3DScene = dynamic(() => import("./Hero3DScene"), { ssr: false });
+import Hero3DScene from "./Hero3DScene";
 
 function supportsWebgl() {
   try {
@@ -26,10 +24,8 @@ type Capabilities = {
 };
 
 /**
- * Hero 3D centerpiece — flowing silk ribbon with drifting gold dust.
- * Static image fallback when WebGL is unavailable; single static frame
- * under prefers-reduced-motion; rendering pauses when the tab is hidden
- * or the hero is scrolled out of view.
+ * Hero 3D centerpiece — silk ribbon + gold dust.
+ * WebGL mounts immediately (no photo flash). Static image only when WebGL is unavailable.
  */
 export function Hero3D() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -60,18 +56,28 @@ export function Hero3D() {
   }, []);
 
   return (
-    <div ref={rootRef} className="absolute inset-0" aria-hidden>
-      {/* Static fallback — only when WebGL is unavailable */}
+    <div ref={rootRef} className="absolute inset-0 bg-ink" aria-hidden>
+      {/* Soft brass wash while WebGL boots — same ink family as the scene fog */}
+      {caps?.webgl && (
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,rgba(201,162,74,0.22),transparent_58%),radial-gradient(ellipse_at_30%_70%,rgba(236,230,217,0.08),transparent_45%)]"
+          aria-hidden
+        />
+      )}
+
+      {/* Photo fallback only when WebGL is missing */}
       {caps && !caps.webgl && (
         <Image
           src={images.hero.src}
           alt=""
           fill
           priority
+          quality={70}
           sizes="100vw"
           className="object-cover object-center opacity-40"
         />
       )}
+
       {caps?.webgl && (
         <Hero3DScene
           full={caps.full}

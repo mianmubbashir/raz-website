@@ -5,9 +5,9 @@
 
 export const site = {
   name: "Raz Stitching",
-  tagline: "Special shalwar kameez. Cut to you.",
+  tagline: "Best stitching in Karachi — shalwar kameez, suits & silai.",
   support:
-    "Karachi's house for special shalwar kameez — with kurta pajama, jubba, design suits, and formal wear finished to your measure.",
+    "Raz Stitching is Karachi's house for the best stitching & silai — shalwar kameez, suit, pant coat, waist coat, kurta pajama, jubba, and every type of stitch finished to your measure.",
   /** WhatsApp — digits only, country code included */
   whatsapp: "923002316609",
   /** Primary mobile / WhatsApp display */
@@ -133,7 +133,7 @@ export const aboutUs = {
     "For over two decades, Raz Stitching has been Karachi's specialist for special shalwar kameez and formal menswear — measured at our Golden Tower shop, stitched at our Korangi factory, and led by CEO Ali Raza.",
   story: [
     "Raz began as a single atelier with one promise: every customer walks out in a suit that sits clean on the shoulder, breaks right at the cuff, and holds its line after repeated wear.",
-    "Today, under CEO Ali Raza, you book at our Golden Tower shop and every order is finished at one central factory in Korangi — where 15+ master tailors, 100+ karigars, and an in-house pressing team hold the same house standard.",
+    "Today, under CEO Ali Raza, you book at our Golden Tower shop and every order is finished at one central factory in Korangi — where 15+ master tailors, 100+ stitchman, and an in-house pressing team hold the same house standard.",
     "You book and measure at Golden Tower. The cloth travels to our factory, returns pressed and finished, and is ready for fitting or pickup at the shop.",
   ],
   values: [
@@ -293,7 +293,7 @@ export const locations = [shop] as const;
 
 export const ourTeam = {
   intro:
-    "Book at our Golden Tower shop — your suit is stitched at the Raz factory in Korangi by masters, karigars, and pressmen under the direction of CEO Ali Raza.",
+    "Book at our Golden Tower shop — your suit is stitched at the Raz factory in Korangi by masters, stitchman, and pressmen under the direction of CEO Ali Raza.",
   factory: {
     name: "Raz Stitching Factory",
     address:
@@ -315,7 +315,7 @@ export const ourTeam = {
       count: "15+",
     },
     {
-      title: "Karigars",
+      title: "Stitchman",
       body: "Skilled stitchers across cutting, assembly, and finishing lines — the backbone of factory output.",
       count: "100+",
     },
@@ -328,6 +328,16 @@ export const ourTeam = {
       title: "Supervisors",
       body: "Floor supervisors who track orders from shop intake to final press and dispatch back to Golden Tower.",
       count: "3+",
+    },
+    {
+      title: "Management Staff",
+      body: "Operations, quality control, and admin teams coordinating shop bookings with factory production every day.",
+      count: "40+",
+    },
+    {
+      title: "IT Team",
+      body: "Systems and support for order tracking, shop tools, and keeping the Raz digital experience running smoothly.",
+      count: "7+",
     },
   ],
   shopTeam: {
@@ -1064,7 +1074,7 @@ export const images = {
     alt: "Raz brand sign inside the showroom",
   },
   pageHero: {
-    src: "/images/hero-tools-bg.png",
+    src: "/images/hero-tools-bg.jpg",
     alt: "Tailoring tools — needle, thread, scissors, and measuring tape",
   },
 } as const;

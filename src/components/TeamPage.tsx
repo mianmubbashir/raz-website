@@ -124,9 +124,9 @@ export function TeamPage() {
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/55">
               Every order is stitched at our Korangi factory — masters,
-              karigars, supervisors, and pressmen working under one roof.
+              stitchman, supervisors, and pressmen working under one roof.
             </p>
-            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {ourTeam.departments.map((dept) => (
                 <li
                   key={dept.title}

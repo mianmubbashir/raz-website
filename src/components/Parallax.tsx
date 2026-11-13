@@ -8,8 +8,12 @@ type ParallaxProps = {
   speed?: number;
 };
 
-/** Subtle scroll-linked vertical shift for depth */
-export function Parallax({ children, className = "", speed = 0.12 }: ParallaxProps) {
+/** Subtle scroll-linked vertical shift — only while the block is near the viewport */
+export function Parallax({
+  children,
+  className = "",
+  speed = 0.12,
+}: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,22 +26,37 @@ export function Parallax({ children, className = "", speed = 0.12 }: ParallaxPro
     if (prefersReduced) return;
 
     let raf = 0;
+    let active = false;
 
     const onScroll = () => {
+      if (!active) return;
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const rect = node.getBoundingClientRect();
         const viewH = window.innerHeight;
         const center = rect.top + rect.height / 2;
         const offset = (center - viewH / 2) * speed;
-        node.style.transform = `translate3d(0, ${offset}px, 0)`;
+        node.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
       });
     };
 
-    onScroll();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        active = entry.isIntersecting;
+        if (active) onScroll();
+        else {
+          cancelAnimationFrame(raf);
+          node.style.transform = "";
+        }
+      },
+      { rootMargin: "20% 0px" },
+    );
+
+    observer.observe(node);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       cancelAnimationFrame(raf);
+      observer.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
   }, [speed]);

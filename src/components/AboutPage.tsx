@@ -96,6 +96,7 @@ export function AboutPage() {
                   src={images.atelier.src}
                   alt={images.atelier.alt}
                   fill
+                  quality={70}
                   sizes="(max-width: 1024px) 100vw, 26rem"
                   className="object-cover"
                 />

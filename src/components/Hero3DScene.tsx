@@ -57,8 +57,11 @@ function SilkRibbon({ full, motion }: { full: boolean; motion: boolean }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [geometry]);
 
-  useFrame(({ clock }) => {
-    if (motion) deform(clock.elapsedTime);
+  const elapsed = useRef(1.5);
+  useFrame((_, delta) => {
+    if (!motion) return;
+    elapsed.current += delta;
+    deform(elapsed.current);
   });
 
   return (
@@ -95,7 +98,7 @@ function makeGlowTexture() {
 }
 
 function GoldDust({ full, motion }: { full: boolean; motion: boolean }) {
-  const count = full ? 320 : 120;
+  const count = full ? 180 : 80;
   const points = useRef<THREE.Points>(null);
   const texture = useMemo(makeGlowTexture, []);
 
@@ -115,9 +118,11 @@ function GoldDust({ full, motion }: { full: boolean; motion: boolean }) {
     return { positions, seeds };
   }, [count]);
 
-  useFrame(({ clock }, delta) => {
+  const elapsed = useRef(0);
+  useFrame((_, delta) => {
     if (!motion || !points.current) return;
-    const t = clock.elapsedTime;
+    elapsed.current += delta;
+    const t = elapsed.current;
     const attribute = points.current.geometry.attributes
       .position as THREE.BufferAttribute;
     const arr = attribute.array as Float32Array;
@@ -178,10 +183,11 @@ function Rig({
     };
   }, [motion]);
 
-  useFrame(({ clock }, delta) => {
+  const elapsed = useRef(0);
+  useFrame((_, delta) => {
     if (!group.current || !motion) return;
-    const t = clock.elapsedTime;
-    const idle = Math.sin(t * 0.1) * 0.03;
+    elapsed.current += delta;
+    const idle = Math.sin(elapsed.current * 0.1) * 0.03;
     const targetRotX = pointer.current.y * 0.05 + scroll.current * 0.16;
     const targetRotY = pointer.current.x * 0.09 + idle;
     const targetPosY = scroll.current * 1.3;
@@ -216,7 +222,7 @@ export default function Hero3DScene({ full, motion, paused }: SceneProps) {
       // "demand" still renders a frame on mount/resize, so the static
       // reduced-motion / paused view stays correct
       frameloop={animating ? "always" : "demand"}
-      dpr={full ? [1, 2] : [1, 1.5]}
+      dpr={full ? [1, 1.75] : [1, 1.25]}
       camera={{ position: [0, 0, 9], fov: 40 }}
       gl={{
         antialias: true,

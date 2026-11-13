@@ -14,9 +14,10 @@ export function Signature() {
               src={images.hero.src}
               alt={images.hero.alt}
               fill
+              quality={70}
               sizes="100vw"
+              loading="lazy"
               className="ken-burns object-cover object-center"
-              priority={false}
             />
           </div>
         </Parallax>

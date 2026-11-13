@@ -12,7 +12,9 @@ export function Contact() {
             src={images.atelier.src}
             alt={images.atelier.alt}
             fill
+            quality={60}
             sizes="100vw"
+            loading="lazy"
             className="object-cover object-top opacity-40 ken-burns"
           />
         </div>

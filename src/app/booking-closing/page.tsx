@@ -5,9 +5,10 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { BookingClosing } from "@/components/BookingClosing";
 
 export const metadata: Metadata = {
-  title: "Booking Closing | Raz Stitching",
+  title: "Booking Closing Dates — Eid & Festive Silai | Raz Stitching",
   description:
-    "Last booking dates for Eid and festive season delivery at Raz Stitching — deadlines at our Golden Tower shop.",
+    "Raz Stitching Karachi booking closing dates for Eid and festive shalwar kameez, suit & silai delivery at Golden Tower.",
+  alternates: { canonical: "/booking-closing" },
 };
 
 export default function BookingClosingPage() {

@@ -26,8 +26,8 @@ export function PageHero({
             alt=""
             fill
             priority
+            quality={70}
             sizes="100vw"
-            unoptimized
             className="object-cover object-center scale-105"
           />
         </div>

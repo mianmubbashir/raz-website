@@ -46,6 +46,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-outfit), system-ui, sans-serif;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+/* Skip layout/paint work for offscreen marketing sections */
+main > section:not(:first-child),
+.stats-band,
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
 }
 
 ::selection {

@@ -58,7 +58,9 @@ export function Lookbook() {
                     src={item.src}
                     alt={item.alt}
                     fill
+                    quality={65}
                     sizes="(max-width: 640px) 72vw, (max-width: 1024px) 42vw, 22vw"
+                    loading={i < 2 ? "eager" : "lazy"}
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                 )}

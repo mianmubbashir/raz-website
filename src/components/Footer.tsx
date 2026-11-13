@@ -4,7 +4,6 @@ import {
   footerInformation,
   footerSocial,
   footerTools,
-  images,
   site,
   whatsappHref,
 } from "@/lib/content";
@@ -74,17 +73,9 @@ function SocialIcon({
 export function Footer() {
   return (
     <footer className="footer-premium relative overflow-hidden bg-[#0a0c10] text-mist">
-      {/* Tailor atelier background */}
+      {/* Lightweight CSS atmosphere — no full-bleed photo download */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image
-          src={images.craft.src}
-          alt=""
-          fill
-          sizes="100vw"
-          className="scale-105 object-cover object-center blur-[6px] brightness-[0.35] saturate-[0.85]"
-        />
-        <div className="absolute inset-0 bg-[#0a0c10]/82" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0c10]/90 via-[#0a0c10]/75 to-[#0a0c10]/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(201,162,74,0.14),transparent_55%),radial-gradient(ellipse_at_80%_100%,rgba(201,162,74,0.08),transparent_50%),linear-gradient(180deg,#0a0c10_0%,#12161e_50%,#0a0c10_100%)]" />
       </div>
 
       {/* Subtle emblem watermark — centered in the footer */}
@@ -94,10 +85,11 @@ export function Footer() {
       >
         <div className="relative h-[26rem] w-[26rem] opacity-[0.05] md:h-[34rem] md:w-[34rem]">
           <Image
-            src="/logo2.svg"
+            src="/logo2-icon.webp"
             alt=""
             fill
-            unoptimized
+            quality={60}
+            sizes="34rem"
             className="object-contain"
           />
         </div>
@@ -112,10 +104,10 @@ export function Footer() {
             </span>
             <div className="relative h-14 w-14 md:h-16 md:w-16">
               <Image
-                src="/logo2.svg"
+                src="/logo2-icon.webp"
                 alt=""
                 fill
-                unoptimized
+                quality={75}
                 sizes="64px"
                 className="object-contain"
               />
