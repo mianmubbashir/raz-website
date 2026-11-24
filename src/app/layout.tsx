@@ -5,7 +5,9 @@ import { JsonLd } from "@/components/JsonLd";
 import {
   defaultDescription,
   defaultTitle,
+  faqJsonLd,
   localBusinessJsonLd,
+  organizationJsonLd,
   seoKeywords,
   siteUrl,
   websiteJsonLd,
@@ -120,7 +122,14 @@ export default function RootLayout({
       className={`${outfit.variable} ${cormorant.variable} ${michroma.variable} h-full`}
     >
       <body className="min-h-full antialiased">
-        <JsonLd data={[localBusinessJsonLd(), websiteJsonLd()]} />
+        <JsonLd
+          data={[
+            organizationJsonLd(),
+            localBusinessJsonLd(),
+            websiteJsonLd(),
+            faqJsonLd(),
+          ]}
+        />
         <ScrollAnchors />
         {children}
       </body>

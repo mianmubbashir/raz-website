@@ -3,7 +3,7 @@ import { defaultDescription, siteUrl } from "@/lib/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Raz Stitching — Best Stitching in Karachi",
+    name: "Raz Stitching | Official Website",
     short_name: "Raz Stitching",
     description: defaultDescription,
     start_url: "/",

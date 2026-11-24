@@ -15,10 +15,15 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-end px-5 pb-12 pt-28 md:px-10 md:pb-16 md:pt-32">
-        <h1 className="animate-fade-up delay-1 max-w-3xl font-display text-[clamp(2.75rem,8vw,5.75rem)] font-medium leading-[0.95] tracking-[-0.02em] text-mist">
-            The art of fine dressing.
+        <p className="animate-fade-up text-[11px] uppercase tracking-[0.36em] text-brass-soft">
+          Raz Stitching · Karachi
+        </p>
+        <h1 className="animate-fade-up delay-1 mt-4 max-w-3xl font-display text-[clamp(2.75rem,8vw,5.75rem)] font-medium leading-[0.95] tracking-[-0.02em] text-mist">
+          Raz Stitching — the art of fine dressing.
           <br />
-          <span className="text-gold-shine">Where creativity meets craftsmanship.</span>
+          <span className="text-gold-shine">
+            Where creativity meets craftsmanship.
+          </span>
         </h1>
 
         <p className="animate-fade-up delay-2 mt-6 max-w-md text-[15px] leading-relaxed text-mist/70 md:text-base">

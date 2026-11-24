@@ -30,10 +30,11 @@ export const site = {
       tel: "03002316609",
     },
   ],
-  hours: "Mon – Sat · 11:00 AM – 9:00 PM",
-  /** Customer-facing shop */
+  hours: "Mon – Sat · 11:00 AM – 10:00 PM",
+  /** Customer-facing shop — match Google Business Profile NAP */
   shopName: "Golden Tower",
-  shopAddress: "Golden Tower, Karachi, Pakistan",
+  shopAddress:
+    "First Floor, Golden Tower, Shop no 23 to 30, Karachi, Pakistan",
   /** Factory — stitching & finishing (shown in footer) */
   factoryName: "Raz Stitching Factory",
   factoryAddress:
@@ -284,8 +285,8 @@ export const craftSteps = [
 /** Customer shop — Golden Tower only */
 export const shop = {
   name: "Golden Tower",
-  address: "Golden Tower, Karachi, Pakistan",
-  hours: "MON – SAT: 11:00AM – 9:00PM",
+  address: "First Floor, Golden Tower, Shop no 23 to 30, Karachi, Pakistan",
+  hours: "MON – SAT: 11:00AM – 10:00PM",
 } as const;
 
 /** Single-shop list for UI that iterates locations */

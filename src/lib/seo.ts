@@ -5,6 +5,9 @@ export const siteUrl = "https://razstitching.com";
 /** Primary keywords for Raz Stitching (Karachi) */
 export const seoKeywords = [
   "Raz Stitching",
+  "Raz Stitching Karachi",
+  "Raz Stitching official website",
+  "Raz Stitching Golden Tower",
   "best stitching in Karachi",
   "shalwar kameez",
   "shalwar kameez stitching Karachi",
@@ -22,14 +25,16 @@ export const seoKeywords = [
   "ghum silai",
   "kurta pajama stitching",
   "tailor Karachi",
+  "men's tailor Karachi",
   "Golden Tower stitching",
 ] as const;
 
+/** Brand-first title — wins “Raz Stitching” queries over generic keyword titles */
 export const defaultTitle =
-  "Raz Stitching | Best Stitching in Karachi — Shalwar Kameez, Suit & Silai";
+  "Raz Stitching | Official Website — Best Stitching in Karachi";
 
 export const defaultDescription =
-  "Raz Stitching — best stitching in Karachi for shalwar kameez, suit, pant coat, waist coat, and every type of silai. Visit our Golden Tower shop or book on WhatsApp.";
+  "Official website of Raz Stitching, Karachi. Special shalwar kameez, suit, pant coat, waist coat & every type of silai at Golden Tower (Shop 23–30). Book on WhatsApp.";
 
 export const organizationId = `${siteUrl}/#organization`;
 export const websiteId = `${siteUrl}/#website`;
@@ -40,28 +45,78 @@ export function absoluteUrl(path = "/") {
   return `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": organizationId,
+    name: "Raz Stitching",
+    legalName: "Raz Stitching",
+    alternateName: [
+      "Raz Stitching Karachi",
+      "Raz Stitching Golden Tower",
+      "Raz Silai",
+    ],
+    url: siteUrl,
+    logo: absoluteUrl("/logo2-icon.webp"),
+    image: absoluteUrl("/logo2-mark.png"),
+    description: defaultDescription,
+    email: site.email,
+    telephone: `+${site.whatsapp}`,
+    foundingLocation: {
+      "@type": "Place",
+      name: "Karachi, Pakistan",
+    },
+    sameAs: [
+      site.social.instagram,
+      site.social.facebook,
+      site.social.linkedin,
+      siteUrl,
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: `+${site.whatsapp}`,
+        email: site.email,
+        areaServed: "PK",
+        availableLanguage: ["en", "ur"],
+      },
+    ],
+  };
+}
+
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": ["Tailor", "LocalBusiness"],
+    "@type": ["Tailor", "LocalBusiness", "MensClothingStore"],
     "@id": localBusinessId,
-    name: site.name,
+    name: "Raz Stitching",
     alternateName: [
       "Raz Stitching Karachi",
       "Raz Silai",
       "Raz Stitching Golden Tower",
     ],
     url: siteUrl,
-    image: absoluteUrl("/logo2-mark.png"),
+    mainEntityOfPage: siteUrl,
+    image: [
+      absoluteUrl("/logo2-mark.png"),
+      absoluteUrl("/images/signature-hero.jpg"),
+      absoluteUrl("/images/suits/suit-shalwar-cream.jpg"),
+    ],
     logo: absoluteUrl("/logo2-icon.webp"),
     description: defaultDescription,
     email: site.email,
-    telephone: [`+${site.whatsapp}`, ...site.phones.map((p) => `+92${p.tel.replace(/^0/, "")}`)],
+    telephone: [
+      `+${site.whatsapp}`,
+      ...site.phones.map((p) => `+92${p.tel.replace(/^0/, "")}`),
+    ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.shopAddress,
+      streetAddress: "First Floor, Golden Tower, Shop no 23 to 30",
       addressLocality: "Karachi",
       addressRegion: "Sindh",
+      postalCode: "74900",
       addressCountry: "PK",
     },
     areaServed: {
@@ -70,10 +125,10 @@ export function localBusinessJsonLd() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      // Golden Tower / Karachi approx — refine when exact pins are available
       latitude: 24.8607,
       longitude: 67.0011,
     },
+    hasMap: "https://www.google.com/maps/search/?api=1&query=Raz+Stitching+Golden+Tower+Karachi",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
@@ -85,20 +140,24 @@ export function localBusinessJsonLd() {
         "Saturday",
       ],
       opens: "11:00",
-      closes: "21:00",
+      closes: "22:00",
     },
     priceRange: "$$",
+    currenciesAccepted: "PKR",
+    paymentAccepted: "Cash, Bank Transfer, JazzCash, EasyPaisa",
     sameAs: [
       site.social.instagram,
       site.social.facebook,
       site.social.linkedin,
     ],
+    parentOrganization: { "@id": organizationId },
     founder: {
       "@type": "Person",
       name: site.owner.name,
       jobTitle: site.owner.role,
     },
     knowsAbout: [...seoKeywords],
+    slogan: site.tagline,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Raz Stitching services",
@@ -131,12 +190,63 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     "@id": websiteId,
     url: siteUrl,
-    name: site.name,
-    alternateName: ["Raz Stitching Karachi", "Raz Silai Karachi"],
+    name: "Raz Stitching",
+    alternateName: [
+      "Raz Stitching Official Website",
+      "Raz Stitching Karachi",
+      "Raz Silai Karachi",
+    ],
     description: defaultDescription,
-    publisher: { "@id": localBusinessId },
+    publisher: { "@id": organizationId },
+    about: { "@id": localBusinessId },
     inLanguage: "en-PK",
     keywords: seoKeywords.join(", "),
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteUrl}/track-suit?id={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+export function faqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is Raz Stitching?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Raz Stitching is a men's tailor in Karachi specializing in shalwar kameez, suits, pant coats, waist coats, and every type of silai. The official shop is at Golden Tower (First Floor, Shop 23–30). Website: https://razstitching.com",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where is Raz Stitching located in Karachi?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Raz Stitching's customer shop is on the First Floor of Golden Tower, Shop no 23 to 30, Karachi. Orders are finished at the Raz factory in Korangi.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do I book stitching at Raz Stitching?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Book on WhatsApp at ${site.phoneDisplay} or visit the Golden Tower shop. You can also use https://razstitching.com/contact`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is razstitching.com the official Raz Stitching website?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. https://razstitching.com is the official website of Raz Stitching Karachi for bookings, order tracking, size calculator, and shop information.",
+        },
+      },
+    ],
   };
 }
 
